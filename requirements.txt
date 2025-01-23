@@ -1,4 +1,4 @@
-moviepy
+moviepy==1.0.3
 srt_equalizer
 termcolor
 Pillow==9.5.0

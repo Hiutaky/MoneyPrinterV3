@@ -412,7 +412,7 @@ const CreateVideo = () => {
                     <Skeleton />
                     : <span className="text-sm">{metadata.description}</span>
                 }
-                <Button disabled={!video} onClick={publish}>
+                <Button disabled={!video || !metadata.title} onClick={publish}>
                     Publish
                 </Button>
             </div>
