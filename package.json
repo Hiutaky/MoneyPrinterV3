@@ -3,7 +3,7 @@
     "module": "index.ts",
     "type": "module",
     "scripts": {
-        "dev": "bun run index.ts",
+        "backend": "bun run index.ts",
         "frontend": "cd frontend && bun run dev",
         "prettier:fix": "bunx prettier . --write"
     },

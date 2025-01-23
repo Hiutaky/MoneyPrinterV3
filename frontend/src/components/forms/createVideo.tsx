@@ -25,13 +25,13 @@ import Skeleton from "../ui/skeleton";
 const formSchema = createVideo;
 
 const defaultGenerating = {
-    topic: true,
-    script: true,
-    imagesPrompts: true,
-    images: true,
-    audio: true,
-    video: true,
-    metadata: true,
+    topic: false,
+    script: false,
+    imagesPrompts: false,
+    images: false,
+    audio: false,
+    video: false,
+    metadata: false,
     publish: false,
 } as const;
 
@@ -51,8 +51,6 @@ const CreateVideo = () => {
         title: "",
         description: "",
     });
-    const [generatingMetadata, setGenerationMetadata] =
-        useState<boolean>(false);
 
     const [generating, setGenerating] = useState<Generating>(defaultGenerating);
 
@@ -397,7 +395,7 @@ const CreateVideo = () => {
                 <b>Metadata</b>
                 <Button
                     disabled={!video}
-                    loading={generatingMetadata}
+                    loading={generating.metadata}
                     onClick={generateMetadata}
                 >
                     Generate
