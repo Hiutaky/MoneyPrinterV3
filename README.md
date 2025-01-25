@@ -51,9 +51,11 @@ Once you've a Cloudflare account, you can create your first AI Worker by navigat
 - Now click on Edit Code
 - Open the cloudflare-worker folder in this project and copy the ai-worker.js file content
 - Paste it into your Cloudflare Worker Editor and then click on Distribute
+- Go in the Worker Settings Tab, navigate to Bindings
+- Add a new Binding and select Workers AI, then as name use AI, save
 
 Now you're AI worker is ready to be used, you can test it by navigating it in this way: 
-- https://yourworker.yourusername.workers.dev/?type=text&prompt=hi
+- https://[yourworker].[yourusername].workers.dev/?type=text&prompt=hi
 
 ### Get Firefox Profile Path
 
