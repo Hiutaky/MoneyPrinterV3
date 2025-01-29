@@ -72,6 +72,36 @@ cp .env.example .env
 
 Now open the .env file in a Code Editor and paste your API Keys, Cloudflare Worker URL ( with final slash / ) and your Firefox Profile Path.
 
+### Setup ImageMagick
+
+ImageMagick is a image-editing library used to create TextClips and resize the images. 
+
+To check if you've ImageMagick installed on your system run:
+- Linux: `convert -version`
+- MacOS: `magick -version`
+- Windows: `magick -version`
+
+If not installed, you can install it from [here](https://imagemagick.org/script/download.php)
+
+To get the location of ImageMagick on your system run:
+- Linux: `which convert`
+- MacOS: `magick -list configure | grep prefix`
+- Windows: `where magick`
+
+It can happen that due to Policy rules, while running the combine_video.py script you can get an error.
+
+Before running the script check if in the Policy there're these 2 directives:
+```xml
+<policy domain="path" rights="read|write" pattern="@*"/>
+<policy domain="coder" rights="read|write" pattern="TXT"/>
+```
+It can happen that the <policy domain="path" rights="read|write" pattern="@*"/> directive is already configurated with rights value to none, if so you need to change it to read|write.
+
+You can find the policy.xml file in this path:
+- Linux: /etc/ImageMagick-[yourversion]/policy.xml
+- MacOS: /etc/ImageMagick-[yourversion]/policy.xml
+- Windows: C:\Program Files\ImageMagick-[yourversion]/policy.xml
+
 ## Running MoneyPrinterV3
 
 To properly run MoneyPrinterV3 you need to run the backend server and the frontend interface, while the Python scripts will be started on-demand.
